@@ -7,7 +7,6 @@ function App() {
     const [dice, setDice] = useState(allNewDice())
     const [tenzies, setTenzies] = useState(false)
 
-
     useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
         let comparisonValue = dice[0].value
@@ -36,7 +35,6 @@ function App() {
         return newDice
     }
 
-    
     function rollDice() {
         if (!tenzies) {
                 setDice(oldDice => oldDice.map((die) => {
@@ -57,6 +55,7 @@ function App() {
     const diceElement = dice.map((die) => (
         <Die 
             key={die.id}
+            id={die.id}
             value={die.value} 
             isHeld={die.isHeld} 
             handleClick={() => holdDice(die.id)}
@@ -81,7 +80,7 @@ function App() {
                 className="btn-roll-dice"
                 onClick={rollDice}
             >
-                {tenzies ? "New Game" : "Roll"}
+                {tenzies ? "New Game " : "Roll 🎲"}
             </button> 
         </main>
         

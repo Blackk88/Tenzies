@@ -4,16 +4,15 @@
 }
 
 body {
-  margin: 0;
-  padding: 20px;
+  padding: 1rem;
   font-family: "Karla", sans-serif;
   background-color: #0B2434;
   text-align: center;
-  
 }
 
-.title {
+/* Typography */
 
+.title {
   color: #2c283d;
   font-size: 2.75rem;
   margin: 0;
@@ -23,9 +22,11 @@ body {
   margin-top: 0.5em;
   font-size: 1.25rem;
   color: #686a81;
-  padding: 0 4.5em;
+  padding: 0 4em;
   font-weight: 400;
 }
+
+/* Main Layout */
 
 main {
   margin: 0 auto;
@@ -33,31 +34,22 @@ main {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #F5F5F5;
+  background-color: #fffffc;
   max-width: 600px;
   height: 500px;
   border-radius: 10px;
 }
 
+/* Dice elements */
+
 .dice-container {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
-  gap: 20px;
+  gap: 1.5em;
   margin-bottom: 1.5em;
 }
 
-.dice-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  background-color: white;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  cursor: pointer;
-  
-}
+
 
 .dice-box h2 {
   font-size: 2rem;
@@ -65,11 +57,11 @@ main {
 }
 
 .btn-roll-dice {
-  background-color: #5035ff;
+  background-color: #0077b6;
   color: white;
   font-size: 1.2rem;
   font-weight: 700;
-  padding: .75em 2.5em;
+  padding: .6em 2em;
   border: none;
   border-radius: 6px;
   box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
@@ -79,9 +71,41 @@ main {
 }
 
 .btn-roll-dice:active {
-  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 5px 5px 5px -1px rgba(0, 0, 0, 0.5);
 }
 
 .held {
   background-color: #59E391;
 }
+
+
+
+/* ! Creating dice faces */
+
+.dice-box {
+  background: white;
+  display: grid;
+  width: 60px;
+  height: 60px;
+  padding: 7px;
+  align-items: center;
+  justify-items: center;
+  grid-template: repeat(3, auto) / repeat(3, auto);
+  grid-template-areas: 
+      "one two three"
+      "four five six"
+      "seven eight nine";
+  border-radius: 15px;
+  border: 1px solid rgb(104, 104, 104);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.dice-box * {
+  background: black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50vw;
+}
+
+
