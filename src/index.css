@@ -6,7 +6,7 @@
 body {
   padding: 1rem;
   font-family: "Karla", sans-serif;
-  background-color: #0B2434;
+  background-color: #fdfdfd;
   text-align: center;
 }
 
@@ -20,7 +20,7 @@ body {
 
 .instructions {
   margin-top: 0.5em;
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #686a81;
   padding: 0 4em;
   font-weight: 400;
@@ -34,11 +34,14 @@ main {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #fffffc;
+  background-color: #fcfcb0;
   max-width: 600px;
-  height: 500px;
+  min-height: 500px;
+  border: 1px solid black;
   border-radius: 10px;
+  color: black;
 }
+
 
 /* Dice elements */
 
@@ -46,10 +49,8 @@ main {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
   gap: 1.5em;
-  margin-bottom: 1.5em;
+  /* margin-bottom: 1.5em; */
 }
-
-
 
 .dice-box h2 {
   font-size: 2rem;
@@ -57,8 +58,9 @@ main {
 }
 
 .btn-roll-dice {
-  background-color: #0077b6;
-  color: white;
+  background-color: #ffaa00;
+  margin: 2em 0;
+  color: black;
   font-size: 1.2rem;
   font-weight: 700;
   padding: .6em 2em;
@@ -67,7 +69,11 @@ main {
   box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
   cursor: pointer;
   font-family: "Karla", sans-serif;
-  
+}
+
+.btn-roll-dice:hover,
+.btn-roll-dice:focus-visible {
+  box-shadow: 2px 0px 15px #ffaa00;
 }
 
 .btn-roll-dice:active {
@@ -77,8 +83,6 @@ main {
 .held {
   background-color: #59E391;
 }
-
-
 
 /* ! Creating dice faces */
 
@@ -101,6 +105,7 @@ main {
   cursor: pointer;
 }
 
+
 .dice-box * {
   background: black;
   width: 10px;
@@ -108,4 +113,30 @@ main {
   border-radius: 50vw;
 }
 
+.game-stats-container {
+  margin: 2em 0 1em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 4em;
+}
 
+.game-stats {
+  font-size: 1.3rem;
+  color: #2c283d;
+  font-weight: bold;
+}
+
+
+.fa-hourglass {
+  margin-right: 8px;
+}
+
+.hourglass-animation {
+  animation: rotateAnimation 1s infinite;
+}
+
+@keyframes rotateAnimation {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(180deg)}
+}

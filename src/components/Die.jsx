@@ -10,9 +10,10 @@ function Die(props) {
         5: ["one", "three", "five", "seven", "nine"],
         6: ["one", "three", "four", "six", "seven", "nine"]
     }
+
     
     const styles = {
-        backgroundColor: props.isHeld ? "#caffbf" : "",
+        backgroundColor: props.isHeld ? "#89fc00" : "",
     }
 
     const dieFaceElements = dieFace[props.value].map((item, index) => (

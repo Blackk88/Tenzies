@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from "react"
 import { nanoid } from "nanoid"
 import Confetti from 'react-confetti'
+
 import Die from "./components/Die"
+import Timer from "./components/Timer"
 
 function App() {
     const [dice, setDice] = useState(allNewDice())
     const [tenzies, setTenzies] = useState(false)
+    const [rollCount, setRollCount] = useState(0)
+    const [startTime, setStartTime] = useState("0")
+    // const [holdValue, setHoldValue] = useState([])
+
+    useEffect(() => {
+        if (rollCount === 1) {
+            setStartTime(new Date())
+        }
+    }, [rollCount])
 
     useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -40,16 +51,20 @@ function App() {
                 setDice(oldDice => oldDice.map((die) => {
                     return die.isHeld ? die : createNewDie()
                 }))
+                setRollCount(prevCount => prevCount + 1)
         }   else {
                 setTenzies(false)
+                setRollCount(0)
                 setDice(allNewDice())
         }
         }
 
     function holdDice(id) {
+        
         setDice(prevDice => prevDice.map(die => {
-            return die.id === id ? {...die, isHeld: !die.isHeld} : die
+            return die.id === id ? {...die, isHeld: !die.isHeld, } : {...die}
         }))
+        
     }
 
     const diceElement = dice.map((die) => (
@@ -61,17 +76,26 @@ function App() {
             handleClick={() => holdDice(die.id)}
         />
     ))
+
     
     return (
-        <main>
+        <main className="">
+
             {tenzies && <Confetti 
-                width={window.innerWidth || 300}
-                height={window.innerHeight || 300} 
+                width={window.innerWidth}
+                height={window.innerHeight} 
             />}
             <div>
                 <h1 className="title">Tenzies</h1>
                 <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>   
             </div>
+
+            <Timer 
+                    tenzies={tenzies}
+                    rollCount={rollCount}
+                    startTime={startTime}
+            />
+
             <div className="dice-container">
                 {diceElement}
             </div>
