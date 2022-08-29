@@ -9,14 +9,8 @@ function App() {
     const [dice, setDice] = useState(allNewDice())
     const [tenzies, setTenzies] = useState(false)
     const [rollCount, setRollCount] = useState(0)
-    const [startTime, setStartTime] = useState("0")
+    const [startTime, setStartTime] = useState(Date.now())
     // const [holdValue, setHoldValue] = useState([])
-
-    useEffect(() => {
-        if (rollCount === 1) {
-            setStartTime(new Date())
-        }
-    }, [rollCount])
 
     useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -55,6 +49,7 @@ function App() {
         }   else {
                 setTenzies(false)
                 setRollCount(0)
+                setStartTime(Date.now())
                 setDice(allNewDice())
         }
         }
