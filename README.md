@@ -1,13 +1,7 @@
-# Tenzies Game - Scrimba project
+# Tenzies Game - Scrimba Frontend career Path solo project
 
-## About Scrimba
+<img src="https://user-images.githubusercontent.com/108989350/201748033-0db8a489-bcd7-4ae6-b447-0ac0d9d6f777.png" width="400">
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Frontend Developer Career Path aims to teach you everything you need to become a Junior Developer, or you could take a deep-dive with one of our advanced courses 🚀
+<a href="https://blackk88.github.io/Tenzies/">Live Demo</a>
 
-- [Our courses](https://scrimba.com/allcourses)
-- [The Frontend Career Path](https://scrimba.com/learn/frontend)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
-
-Happy Coding!
+Simple game built with ReactJS. One of the Scrimba Career Path project. Working on this project I've learnt how to use conditional rendering, 3rd party libraries, a bit of CSS (draw dice figures). I implemented some strach goals such as timer and roll counter. 
